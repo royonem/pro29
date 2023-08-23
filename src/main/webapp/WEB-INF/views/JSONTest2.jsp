@@ -13,7 +13,7 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
 $(function() {
-		$("#checkJson").click(function() {
+		$("#checkJson1").click(function() {
 			
 		// 회원 정보를 JSON으로 생성
 		var article = {
@@ -24,11 +24,8 @@ $(function() {
 		};
 		
 		$.ajax({
-// 			type : "post",
-// 			url : "${contextPath}/boards", // 1. 요청
-			
-			type : "put",
-			url : "${contextPath}/boards/555",
+			type : "get",
+			url : "${contextPath}/boards/all", // 1. 요청
 
 			contentType : "application/json",
 			data : JSON.stringify(article),// 2. JSON을 문자열로 변환
@@ -45,10 +42,134 @@ $(function() {
 		
 		});
 	});
+$(function() {
+	$("#checkJson2").click(function() {
+		
+	// 회원 정보를 JSON으로 생성
+	var article = {
+		articleNo : "555",
+		writer : "stephen",
+		title : "jj's golf",
+		content : "he also likes ripple"
+	};
+	
+	$.ajax({
+		type : "post",
+		url : "${contextPath}/boards", // 1. 요청
+
+		contentType : "application/json",
+		data : JSON.stringify(article),// 2. JSON을 문자열로 변환
+
+		success : function(data, textStatus) {
+			alert(data);
+		},
+		error : function(data, textStatus) {
+			alert("애러가 발생");
+		},
+		complete : function(data, textStatus){
+		}
+		}); // end ajax
+	
+	});
+});
+$(function() {
+	$("#checkJson3").click(function() {
+		
+	var article = {
+		articleNo : "555",
+		writer : "stephen",
+		title : "jj's golf",
+		content : "he also likes ripple"
+	};
+	
+	$.ajax({
+		type : "get",
+		url : "${contextPath}/boards/555", // 1. 요청
+
+		contentType : "application/json",
+		data : JSON.stringify(article),// 2. JSON을 문자열로 변환
+
+		success : function(data, textStatus) {
+			alert(data);
+		},
+		error : function(data, textStatus) {
+			alert("애러가 발생");
+		},
+		complete : function(data, textStatus){
+		}
+		}); // end ajax
+	
+	});
+});
+$(function() {
+	$("#checkJson4").click(function() {
+		
+	// 회원 정보를 JSON으로 생성
+	var article = {
+		articleNo : "555",
+		writer : "stephen",
+		title : "jj's golf",
+		content : "he also likes ripple"
+	};
+	
+	$.ajax({
+		type : "put",
+		url : "${contextPath}/boards/555", // 1. 요청
+	
+
+		contentType : "application/json",
+		data : JSON.stringify(article),// 2. JSON을 문자열로 변환
+
+		success : function(data, textStatus) {
+			alert(data);
+		},
+		error : function(data, textStatus) {
+			alert("애러가 발생");
+		},
+		complete : function(data, textStatus){
+		}
+		}); // end ajax
+	
+	});
+});
+$(function() {
+	$("#checkJson5").click(function() {
+		
+	// 회원 정보를 JSON으로 생성
+	var article = {
+		articleNo : "555",
+		writer : "stephen",
+		title : "jj's golf",
+		content : "he also likes ripple"
+	};
+	
+	$.ajax({
+		type : "delete",
+		url : "${contextPath}/boards/555", // 1. 요청
+
+		contentType : "application/json",
+		data : JSON.stringify(article),// 2. JSON을 문자열로 변환
+
+		success : function(data, textStatus) {
+			alert(data);
+		},
+		error : function(data, textStatus) {
+			alert("애러가 발생");
+		},
+		complete : function(data, textStatus){
+		}
+		}); // end ajax
+	
+	});
+});
 </script>
 </head>
 <body>
-<input type="button" id="checkJson" value="새글 쓰기"/><br><br>
+<input type="button" id="checkJson1" value="목록 보기"/><br><br>
+<input type="button" id="checkJson2" value="새글 쓰기"/><br><br>
+<input type="button" id="checkJson3" value="조회 하기"/><br><br>
+<input type="button" id="checkJson4" value="수정 하기"/><br><br>
+<input type="button" id="checkJson5" value="삭제 하기"/><br><br>
 <div id = "output"></div>
 </body>
 </html>

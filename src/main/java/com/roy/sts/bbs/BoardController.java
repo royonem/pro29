@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.roy.sts.ex01.MemberVO;
-
 @RestController
 @RequestMapping("/boards")
 public class BoardController {
