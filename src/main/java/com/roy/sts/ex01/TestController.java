@@ -7,6 +7,9 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -78,6 +81,20 @@ public class TestController {
 	@RequestMapping(value = "/info", method = RequestMethod.POST)
 	public void modify(@RequestBody MemberVO vo) {
 		logger.info(vo.toString());
+	}
+	
+	@RequestMapping("/membersList2")
+	public ResponseEntity<List<MemberVO>> ListMembers2() {
+		List<MemberVO> list = new ArrayList<MemberVO>();
+		for (int i = 0; i <10 ; i++) {
+			MemberVO vo = new MemberVO();
+			vo.setId("lee" + i);
+			vo.setPwd("Jin" + i);
+			vo.setName("Meyong" + i);
+			vo.setEmail("lee" + i + "@test.com");
+			list.add(vo);
+		}
+		return new ResponseEntity(list, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 }

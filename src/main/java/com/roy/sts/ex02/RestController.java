@@ -35,7 +35,7 @@ public class RestController {
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 		String message = "<script>";
 		message += " alert ('new user registered');";
-		message += " location.href='/pro29/test/membersList2';";
+		message += " location.href='/sts/test/membersList2';";
 		message += " </script>";
 		return new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 	}
