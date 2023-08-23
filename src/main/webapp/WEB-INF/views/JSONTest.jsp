@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset=UTF-8">
 <title>Home</title>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
@@ -22,7 +27,8 @@ $(function() {
 			type : "post",
 			url : "${contextPath}/test/info", // 1. 요청
 			contentType : "application/json",
-			data : JSON.stringify(member),	// 2. JSON을 문자열로 변환
+			data : JSON.stringify(member),// 2. JSON을 문자열로 변환
+	
 			success : function(data, textStatus) {
 				
 			},
