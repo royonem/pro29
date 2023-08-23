@@ -3,6 +3,9 @@ package com.roy.sts.ex02;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,6 +26,18 @@ public class RestController {
 	@RequestMapping(value ="/rest2")
 	public ModelAndView rest2() {
 		return new ModelAndView("JSONTest");
+	}
+	
+	@RequestMapping(value="/rest3")
+	public ResponseEntity rest3() {
+		HttpHeaders responseHeaders = new HttpHeaders();
+		
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		String message = "<script>";
+		message += " alert ('new user registered');";
+		message += " location.href='/pro29/test/membersList2';";
+		message += " </script>";
+		return new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 	}
 	
 }
