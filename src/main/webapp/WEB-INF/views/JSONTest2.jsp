@@ -24,13 +24,12 @@ $(function() {
 		};
 		
 		$.ajax({
-			type : "post",
-			url : "${contextPath}/boards", // 1. 요청
+// 			type : "post",
+// 			url : "${contextPath}/boards", // 1. 요청
 			
-			/*
 			type : "put",
 			url : "${contextPath}/boards/555",
-			*/
+
 			contentType : "application/json",
 			data : JSON.stringify(article),// 2. JSON을 문자열로 변환
 	
